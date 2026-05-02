@@ -4,7 +4,7 @@ import type { Movie } from "../types/movie";
 interface MoviesHttpResponse {
   results: Movie[];
 }
-const fetchMovies=async (query: string) => {
+const fetchMovies=async (query: string): Promise<MoviesHttpResponse> => {
   const response = await axios.get<MoviesHttpResponse>(
     `https://api.themoviedb.org/3/search/movie`, {
      params: {
